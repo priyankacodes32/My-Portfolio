@@ -1,4 +1,4 @@
-# Premium UI/UX Designer Portfolio
+# UI/UX Designer Portfolio
 
 A premium, modern, responsive single-page portfolio website for a UI/UX Designer. Built using HTML5, CSS3, Bootstrap 5, and Vanilla JavaScript with a modular component-loading architecture.
 
