@@ -1,0 +1,167 @@
+/* =====================================================
+   CORE ANIMATIONS
+===================================================== */
+
+/* Fade-in & Up reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover lift effect */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  border-color: rgba(79, 70, 229, 0.25) !important;
+}
+
+/* Floating animation for UI cards in Hero */
+@keyframes floatY1 {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floatY2 {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-slow-1 {
+  animation: floatY1 6s ease-in-out infinite;
+}
+
+.float-slow-2 {
+  animation: floatY2 8s ease-in-out infinite;
+}
+
+/* Glowing Background Blobs */
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1) translate(0px, 0px);
+    opacity: 0.4;
+  }
+  33% {
+    transform: scale(1.15) translate(30px, -30px);
+    opacity: 0.6;
+  }
+  66% {
+    transform: scale(0.9) translate(-20px, 20px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1) translate(0px, 0px);
+    opacity: 0.4;
+  }
+}
+
+.glow-bubble-indigo {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.35) 0%, rgba(79, 70, 229, 0) 70%);
+  filter: blur(60px);
+  animation: pulseGlow 12s infinite alternate ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-bubble-cyan {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, rgba(6, 182, 212, 0) 70%);
+  filter: blur(50px);
+  animation: pulseGlow 15s infinite alternate-reverse ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Button interactive transitions */
+.btn-premium {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+}
+
+/* Image zoom on hover */
+.img-zoom-container {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.img-zoom-target {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom-container:hover .img-zoom-target {
+  transform: scale(1.05);
+}
+
+/* Navbar item link animation */
+.nav-link-premium {
+  position: relative;
+}
+
+.nav-link-premium::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4F46E5;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-premium.active::after,
+.nav-link-premium:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Scroll progress bar at the top of viewport */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4F46E5 0%, #06B6D4 100%);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
