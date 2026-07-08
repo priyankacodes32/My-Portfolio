@@ -1189,6 +1189,7 @@ a {
 .mydesign-card img,
 .mydesign-modal-img-container img {
   transition: transform 0.5s ease;
+  cursor: pointer;
 }
 
 .mydesign-card:hover {

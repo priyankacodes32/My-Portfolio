@@ -559,13 +559,36 @@ function initProjectShowcaseModalFood() {
 function initMyDesigns() {
   const openModalBtn = document.getElementById("open-mydesigns-modal-btn");
   const modalEl = document.getElementById("mydesignsModal");
+  const lightboxEl = document.getElementById("mydesignsLightboxModal");
 
-  // Open Modal
+  // Open Grid Modal
   if (openModalBtn && modalEl) {
     const modal = new bootstrap.Modal(modalEl);
     openModalBtn.addEventListener("click", (e) => {
       e.preventDefault();
       modal.show();
     });
+  }
+
+  // Lightbox Modal trigger
+  if (lightboxEl) {
+    const lightboxModal = new bootstrap.Modal(lightboxEl);
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    // Setup click listeners for all design images
+    const setupClickListeners = () => {
+      const images = document.querySelectorAll(".mydesign-card img, .mydesign-modal-img-container img");
+      images.forEach(img => {
+        img.addEventListener("click", () => {
+          if (lightboxImg) {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+          }
+          lightboxModal.show();
+        });
+      });
+    };
+
+    setupClickListeners();
   }
 }
