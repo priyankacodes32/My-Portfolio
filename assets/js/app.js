@@ -92,7 +92,7 @@ function initCaseStudyToggle() {
       if (isExpanded) {
         targetCaseStudy.classList.remove("expanded");
         btn.innerHTML = `View Case Study <i class="bi bi-chevron-down ms-1"></i>`;
-        
+
         // Smoothly scroll back to the project header
         const card = btn.closest(".project-card");
         if (card) {
@@ -101,7 +101,7 @@ function initCaseStudyToggle() {
       } else {
         targetCaseStudy.classList.add("expanded");
         btn.innerHTML = `Close Case Study <i class="bi bi-chevron-up ms-1"></i>`;
-        
+
         // Scroll to the detailed case study
         setTimeout(() => {
           targetCaseStudy.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -119,11 +119,11 @@ function initSmoothScroll() {
     link.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
       if (href === "#") return;
-      
+
       const targetSection = document.querySelector(href);
       if (targetSection) {
         e.preventDefault();
-        
+
         // Collapse mobile menu if open
         const navbarToggler = document.querySelector(".navbar-toggler");
         const navbarCollapse = document.querySelector(".navbar-collapse");
@@ -176,11 +176,11 @@ function initProjectShowcaseModal() {
   const openBtn = document.getElementById("open-showcase-btn");
   const triggerDiv = document.getElementById("project1-showcase-trigger");
   const modalEl = document.getElementById("showcaseModal");
-  
+
   if (!modalEl) return;
-  
+
   const modal = new bootstrap.Modal(modalEl);
-  
+
   const openModal = (e) => {
     e.preventDefault();
     modal.show();
@@ -193,7 +193,7 @@ function initProjectShowcaseModal() {
 
   if (openBtn) openBtn.addEventListener("click", openModal);
   if (triggerDiv) triggerDiv.addEventListener("click", openModal);
-  
+
   // Carousel logic
   const schoolERPImages = [
     { file: "Admin Dashboard.png", title: "Admin Dashboard" },
@@ -218,45 +218,45 @@ function initProjectShowcaseModal() {
     { file: "Profile Section.png", title: "User Profile Settings" },
     { file: "Parent Contact Us.png", title: "Parent Contact Portal" }
   ];
-  
+
   let currentIdx = 0;
   const imgEl = document.getElementById("carousel-img");
   const captionEl = document.getElementById("carousel-caption");
   const indexEl = document.getElementById("carousel-index");
-  
+
   const updateSlide = (idx) => {
     if (idx < 0) idx = schoolERPImages.length - 1;
     if (idx >= schoolERPImages.length) idx = 0;
     currentIdx = idx;
-    
+
     if (imgEl) {
       imgEl.style.opacity = 0;
       setTimeout(() => {
-        imgEl.src = `/assets/images/project_files/School-ERP-UI/${schoolERPImages[currentIdx].file}`;
+        imgEl.src = `./assets/images/project_files/School-ERP-UI/${schoolERPImages[currentIdx].file}`;
         imgEl.style.opacity = 1;
       }, 150);
     }
     if (captionEl) captionEl.innerText = schoolERPImages[currentIdx].title;
     if (indexEl) indexEl.innerText = `${currentIdx + 1} / ${schoolERPImages.length}`;
   };
-  
+
   const prevBtn = document.getElementById("prev-ui-btn");
   const nextBtn = document.getElementById("next-ui-btn");
-  
+
   if (prevBtn) {
     prevBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       updateSlide(currentIdx - 1);
     });
   }
-  
+
   if (nextBtn) {
     nextBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       updateSlide(currentIdx + 1);
     });
   }
-  
+
   // Tabs scroll syncing
   const scrollContainer = document.getElementById("scroll-container");
   const tabs = [
@@ -264,7 +264,7 @@ function initProjectShowcaseModal() {
     document.getElementById("tab-typography"),
     document.getElementById("tab-colortheory")
   ];
-  
+
   tabs.forEach((tab, index) => {
     if (tab) {
       tab.addEventListener("click", () => {
@@ -273,7 +273,7 @@ function initProjectShowcaseModal() {
           left: index * paneWidth,
           behavior: "smooth"
         });
-        
+
         // Explicitly set active class on click to be immediate
         tabs.forEach((t, i) => {
           if (t) {
@@ -284,7 +284,7 @@ function initProjectShowcaseModal() {
       });
     }
   });
-  
+
   if (scrollContainer) {
     scrollContainer.addEventListener("scroll", () => {
       const paneWidth = scrollContainer.clientWidth;
@@ -305,11 +305,11 @@ function initProjectShowcaseModalApex() {
   const openBtn = document.getElementById("open-showcase-btn-apex");
   const triggerDiv = document.getElementById("project2-showcase-trigger");
   const modalEl = document.getElementById("showcaseModalApex");
-  
+
   if (!modalEl) return;
-  
+
   const modal = new bootstrap.Modal(modalEl);
-  
+
   const openModal = (e) => {
     e.preventDefault();
     modal.show();
@@ -322,7 +322,7 @@ function initProjectShowcaseModalApex() {
 
   if (openBtn) openBtn.addEventListener("click", openModal);
   if (triggerDiv) triggerDiv.addEventListener("click", openModal);
-  
+
   // Carousel logic
   const apexImages = [
     { file: "Home Page (1).png", title: "Activity Dashboard Home" },
@@ -346,45 +346,45 @@ function initProjectShowcaseModalApex() {
     { file: "Quotations (1).png", title: "Daily Motivation Quotes (Page 1)" },
     { file: "Quotations (2).png", title: "Daily Motivation Quotes (Page 2)" }
   ];
-  
+
   let currentIdx = 0;
   const imgEl = document.getElementById("carousel-img-apex");
   const captionEl = document.getElementById("carousel-caption-apex");
   const indexEl = document.getElementById("carousel-index-apex");
-  
+
   const updateSlide = (idx) => {
     if (idx < 0) idx = apexImages.length - 1;
     if (idx >= apexImages.length) idx = 0;
     currentIdx = idx;
-    
+
     if (imgEl) {
       imgEl.style.opacity = 0;
       setTimeout(() => {
-        imgEl.src = `/assets/images/project_files/APEX-Project-UI/${apexImages[currentIdx].file}`;
+        imgEl.src = `./assets/images/project_files/APEX-Project-UI/${apexImages[currentIdx].file}`;
         imgEl.style.opacity = 1;
       }, 150);
     }
     if (captionEl) captionEl.innerText = apexImages[currentIdx].title;
     if (indexEl) indexEl.innerText = `${currentIdx + 1} / ${apexImages.length}`;
   };
-  
+
   const prevBtn = document.getElementById("prev-ui-btn-apex");
   const nextBtn = document.getElementById("next-ui-btn-apex");
-  
+
   if (prevBtn) {
     prevBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       updateSlide(currentIdx - 1);
     });
   }
-  
+
   if (nextBtn) {
     nextBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       updateSlide(currentIdx + 1);
     });
   }
-  
+
   // Tabs scroll syncing
   const scrollContainer = document.getElementById("scroll-container-apex");
   const tabs = [
@@ -392,7 +392,7 @@ function initProjectShowcaseModalApex() {
     document.getElementById("tab-typography-apex"),
     document.getElementById("tab-colortheory-apex")
   ];
-  
+
   tabs.forEach((tab, index) => {
     if (tab) {
       tab.addEventListener("click", () => {
@@ -401,7 +401,7 @@ function initProjectShowcaseModalApex() {
           left: index * paneWidth,
           behavior: "smooth"
         });
-        
+
         // Explicitly set active class on click to be immediate
         tabs.forEach((t, i) => {
           if (t) {
@@ -433,11 +433,11 @@ function initProjectShowcaseModalFood() {
   const openBtn = document.getElementById("open-showcase-btn-food");
   const triggerDiv = document.getElementById("project3-showcase-trigger");
   const modalEl = document.getElementById("showcaseModalFood");
-  
+
   if (!modalEl) return;
-  
+
   const modal = new bootstrap.Modal(modalEl);
-  
+
   const openModal = (e) => {
     e.preventDefault();
     modal.show();
@@ -450,7 +450,7 @@ function initProjectShowcaseModalFood() {
 
   if (openBtn) openBtn.addEventListener("click", openModal);
   if (triggerDiv) triggerDiv.addEventListener("click", openModal);
-  
+
   // Carousel logic
   const foodImages = [
     { file: "FoodScheduler.png", title: "App Dashboard" },
@@ -468,19 +468,19 @@ function initProjectShowcaseModalFood() {
     { file: "Nutrition (2).png", title: "Nutrition Summary" },
     { file: "Add.png", title: "Add Custom Meal" }
   ];
-  
+
   let currentIdx = 0;
   const imgEl = document.getElementById("carousel-img-food");
   const captionEl = document.getElementById("carousel-caption-food");
   const indexEl = document.getElementById("carousel-index-food");
   const prevBtn = document.getElementById("prev-ui-btn-food");
   const nextBtn = document.getElementById("next-ui-btn-food");
-  
+
   const updateSlide = () => {
     if (!imgEl) return;
     imgEl.style.opacity = "0.5";
     setTimeout(() => {
-      imgEl.src = `/assets/images/project_files/Food-Sheduler-UI/${foodImages[currentIdx].file}`;
+      imgEl.src = `./assets/images/project_files/Food-Sheduler-UI/${foodImages[currentIdx].file}`;
       if (captionEl) captionEl.textContent = foodImages[currentIdx].title;
       if (indexEl) indexEl.textContent = `${currentIdx + 1} / ${foodImages.length}`;
       imgEl.style.opacity = "1";
@@ -502,16 +502,16 @@ function initProjectShowcaseModalFood() {
       updateSlide();
     });
   }
-  
+
   // Tab Navigation (Scroll pane syncing)
   const tabs = [
     { id: "tab-ui-food", index: 0 },
     { id: "tab-typography-food", index: 1 },
     { id: "tab-colortheory-food", index: 2 }
   ];
-  
+
   const scrollContainer = document.getElementById("scroll-container-food");
-  
+
   tabs.forEach(tab => {
     const btn = document.getElementById(tab.id);
     if (btn && scrollContainer) {
@@ -523,7 +523,7 @@ function initProjectShowcaseModalFood() {
         });
         // Add active to current
         btn.classList.add("active");
-        
+
         // Scroll to pane
         const paneWidth = scrollContainer.offsetWidth;
         scrollContainer.scrollTo({
@@ -540,7 +540,7 @@ function initProjectShowcaseModalFood() {
       const paneWidth = scrollContainer.offsetWidth;
       const scrollPos = scrollContainer.scrollLeft;
       const activeIndex = Math.round(scrollPos / paneWidth);
-      
+
       tabs.forEach((tab, idx) => {
         const btn = document.getElementById(tab.id);
         if (btn) {
